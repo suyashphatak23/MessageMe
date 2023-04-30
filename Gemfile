@@ -48,6 +48,9 @@ gem "haml-rails"
 # Semantic UI
 gem "semantic-ui-sass"
 
+# Devise gem
+gem "devise"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

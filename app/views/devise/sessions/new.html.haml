@@ -1,0 +1,30 @@
+%h2.ui.center.aligned.large.header
+  Welcome To MessageMe
+  %em A Complete Chat Application
+
+%h4.ui.center.aligned.medium.icon.header
+  %i.circular.orange.power.off.tiny.icon
+  Log in to start chatting
+
+.ui.placeholder.segment
+  .ui.two.column.very.relaxed.stackable.grid
+    .column
+      = form_for(resource, as: resource_name, html: {class: "ui form", role: "form"}, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email, "Email"
+          .ui.left.icon.input
+            = f.email_field :email, placeholder: "Username"
+            %i.user.icon
+
+        .field
+          = f.label :password, "Password"
+          .ui.left.icon.input
+            = f.password_field :password, placeholder: "Password", autocomplete: "current-password"
+            %i.lock.icon
+
+        = f.submit "Login", class: "ui orange submit button"
+
+    .middle.aligned.column
+      = link_to "Sign up", new_registration_path(resource_name), class:"ui big orange button"
+  .ui.vertical.divider
+    Or
