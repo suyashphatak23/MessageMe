@@ -1,14 +1,16 @@
 .ui.large.menu.inverted
   .ui.container
-    %a.active.item Home
-    %a.item Messages
+    = link_to "Home", root_path, class:"item #{'active' if current_page?(root_path)}"
     .right.menu
-      .ui.dropdown.item
-        Account
-        %i.dropdown.icon
-        .menu
-          %a.item Log Out
-          %a.item Log In
-          %a.item Sign Up
-      .item
-        .ui.primary.button Sign Up
+      - if user_signed_in?
+        .ui.dropdown.item
+          = current_user.name
+          %i.dropdown.icon
+          .menu
+            = link_to "Edit Profile", edit_user_path(current_user), class:"item"
+            = link_to "Log Out", destroy_user_session_path, class:"item"
+            .divider
+            = link_to "Delete Account", user_path(current_user), method: :delete ,class:"item"
+      - else
+        .item
+          = link_to "Log In / Sign Up", new_user_session_path, class:"ui primary button"

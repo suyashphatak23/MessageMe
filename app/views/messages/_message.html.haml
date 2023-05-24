@@ -1,0 +1,6 @@
+= turbo_frame_tag message do
+  .event{id: "message-#{message.id}"}
+    .content
+      .summary
+        %em= "#{message.user.name} : "
+        = message.body

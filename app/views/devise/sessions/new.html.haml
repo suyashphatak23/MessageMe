@@ -1,8 +1,10 @@
 %h2.ui.center.aligned.large.header
   Welcome To MessageMe
-  %em A Complete Chat Application
+  %br
+  %small
+    %em A Complete Chat Application
 
-%h4.ui.center.aligned.medium.icon.header
+%h4.ui.center.aligned.medium.icon.header.top.margin{style: "margin-bottom: 2.5rem;"}
   %i.circular.orange.power.off.tiny.icon
   Log in to start chatting
 
@@ -13,8 +15,8 @@
         .field
           = f.label :email, "Email"
           .ui.left.icon.input
-            = f.email_field :email, placeholder: "Username"
-            %i.user.icon
+            = f.email_field :email, placeholder: "Email"
+            %i.envelope.icon
 
         .field
           = f.label :password, "Password"
@@ -22,7 +24,7 @@
             = f.password_field :password, placeholder: "Password", autocomplete: "current-password"
             %i.lock.icon
 
-        = f.submit "Login", class: "ui orange submit button"
+        = f.submit "Login", class: "ui orange submit button", style: "margin-top: 2rem;"
 
     .middle.aligned.column
       = link_to "Sign up", new_registration_path(resource_name), class:"ui big orange button"

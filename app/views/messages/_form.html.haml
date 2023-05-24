@@ -1,0 +1,16 @@
+= form_with(model: message, html: { class: "ui reply form", id: "new_form" }) do |form|
+  - if message.errors.any?
+    #error_explanation.bg-red-50.text-red-500.px-3.py-2.font-medium.rounded-lg.mt-3
+      %h2
+        = pluralize(message.errors.count, "error") + " prohibited this todo from being saved:"
+      %ul
+        - message.errors.each do |error|
+          %li= error.full_message
+
+  .field.inline-form
+    .field
+      = form.text_field :body, class: "form-control", placeholder: "Add a new message", required: true
+
+    .field
+      = form.submit "Submit", class: "ui bordered inverted orange icon submit button", value: "Send"
+
