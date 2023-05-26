@@ -4,3 +4,13 @@
 .chatbox{
     height: 500px;
 }
+
+#messages {
+    height:15em;
+    overflow: auto;
+}
+
+#friends {
+    height: 30em;
+    overflow: auto;
+}

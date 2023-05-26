@@ -2,9 +2,9 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_message, only: %i[ edit update destroy ]
 
-
   def index
     @messages = Message.all
+    @users = User.all
   end
 
   def new

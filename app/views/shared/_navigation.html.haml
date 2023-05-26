@@ -7,10 +7,11 @@
           = current_user.name
           %i.dropdown.icon
           .menu
-            = link_to "Edit Profile", edit_user_path(current_user), class:"item"
-            = link_to "Log Out", destroy_user_session_path, class:"item"
+            = link_to "View Profile", user_path(current_user), class:"item"
+            = link_to "Edit Profile", edit_user_registration_path , class:"item"
             .divider
-            = link_to "Delete Account", user_path(current_user), method: :delete ,class:"item"
+            = link_to "Log Out", destroy_user_session_path, method: :delete, class:"item"
+
       - else
         .item
           = link_to "Log In / Sign Up", new_user_session_path, class:"ui primary button"

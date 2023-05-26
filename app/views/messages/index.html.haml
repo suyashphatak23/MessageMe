@@ -7,12 +7,16 @@
 
     .twelve.wide.column
       .ui.fluid.raised.card.chatbox
-        .content
+        .content{ id: "messages" }
           = turbo_stream_from "messages"
 
-          .ui.medium.feed
-            = turbo_frame_tag "messages" do
-              = render @messages
+          - if @messages.any?
+            .ui.medium.feed
+              = turbo_frame_tag "messages" do
+                = render @messages
+
+          - else
+            = render "empty_state"
 
         .extra.content
           = render "form", message: Message.new
@@ -22,6 +26,7 @@
       .ui.card.raised.chatbox
         .content
           .ui.inverted.vertical.menu
-            %a.active.item Home
-            %a.item Messages
-            %a.item Friends
+            %a.active.item Friends
+            .content{ id: "friends"}
+              - @users.each do |user|
+                %a.item= user.name

@@ -1,6 +1,6 @@
 = turbo_frame_tag message do
-  .event{id: "message-#{message.id}"}
+  .event{id: "message-#{message.id}", style:"margin: 1rem 0;"}
     .content
       .summary
         %em= "#{message.user.name} : "
-        = message.body
+        = content_tag :div, message.body, class: "ui teal message"
