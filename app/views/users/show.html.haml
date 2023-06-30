@@ -1,0 +1,17 @@
+.ui.container
+
+  .ui.placeholder.segment
+
+    %h2.ui.header{style: "margin:auto; margin-bottom: 2.5rem;"}
+      %i.user.icon
+      .content
+        User Profile
+
+    .ui.cards{style: "margin:auto; margin-bottom: 2.5rem;"}
+      .card
+        .content
+          .header= @user.name
+          .meta= @user.email
+          .description
+            = " Hello #{@user.name} !"
+
